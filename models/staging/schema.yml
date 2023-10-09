@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+    - name: superset
+      description: Tables here have the TAP glific bigquery data
+      schema: public
+      tables:
+          - name: logs
+            identifier: logs
+            description: This contains the data of logs and actions
