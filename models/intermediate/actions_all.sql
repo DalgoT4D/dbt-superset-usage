@@ -6,27 +6,17 @@
 WITH cte_dashboards AS (
 
     SELECT
-        dashboards.id,
-        dashboards.dashboard_title,
-        dashboards.created_on
+        id,
+        dashboard_title,
+        published,
+        created_on
     FROM
         {{ source(
             'superset',
             'dashboards'
         ) }}
-        dashboards
-        INNER JOIN {{ source(
-            'superset',
-            'dashboard_roles'
-        ) }}
-        dashboard_roles
-        ON dashboards.id = dashboard_roles.dashboard_id
     WHERE
-        dashboards.published IS TRUE
-    GROUP BY
-        dashboards.id,
-        dashboards.dashboard_title,
-        dashboards.created_on
+        dashboard_title IS NOT NULL
 ),
 cte_slices AS (
     SELECT
@@ -41,55 +31,38 @@ cte_slices AS (
         ) }}
 )
 SELECT
-    user_roles.user_id,
-    user_roles.user_name,
+    user_roles.id AS user_id,
+    CONCAT(
+        user_roles.first_name,
+        ' ',
+        user_roles.last_name
+    ) AS user_name,
     user_roles.created_on AS user_created_on,
-    user_roles.role AS role_name,
+    'All' AS role_name,
     logs.action,
     1 AS action_count,
     logs.dttm AS action_date,
+    logs.slice_id AS chart_id,
     cte_slices.slice_name AS chart_title,
     cte_slices.viz_type AS chart_viz,
     cte_slices.created_on AS chart_created_on,
+    cte_dashboards.id AS dashboard_id,
     cte_dashboards.dashboard_title,
-    cte_dashboards.created_on AS dashboard_created_on
+    cte_dashboards.created_on AS dashboard_created_on,
+    CASE
+        WHEN cte_dashboards.published THEN 'published'
+        ELSE 'draft'
+    END AS dashboard_status
 FROM
-    {{ ref('user_roles') }} AS user_roles
-    LEFT JOIN (
-        SELECT
-            *
-        FROM
-            {{ source(
-                'superset',
-                'logs'
-            ) }}
-        WHERE
-            dashboard_id IS NULL
-            AND slice_id IS NULL
-        UNION ALL
-        SELECT
-            logs.*
-        FROM
-            {{ source(
-                'superset',
-                'logs'
-            ) }}
-            logs
-            INNER JOIN cte_dashboards
-            ON cte_dashboards.id = logs.dashboard_id
-        UNION ALL
-        SELECT
-            *
-        FROM
-            {{ source(
-                'superset',
-                'logs'
-            ) }}
-        WHERE
-            slice_id IS NOT NULL
-            AND dashboard_id IS NULL
-    ) AS logs
-    ON user_roles.user_id = logs.user_id
+    {{ source(
+        'superset',
+        'users'
+    ) }} AS user_roles
+    LEFT JOIN {{ source(
+        'superset',
+        'logs'
+    ) }} AS logs
+    ON user_roles.id = logs.user_id
     LEFT JOIN cte_dashboards
     ON cte_dashboards.id = logs.dashboard_id
     LEFT JOIN cte_slices

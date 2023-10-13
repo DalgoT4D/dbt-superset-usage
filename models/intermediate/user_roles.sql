@@ -26,7 +26,7 @@ SELECT
         first_name,
         ' ',
         last_name
-    ) AS "name",
+    ) AS user_name,
     cte_user_roles.role,
     created_on
 FROM

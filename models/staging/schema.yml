@@ -23,3 +23,6 @@ sources:
           - name: slices
             identifier: slices
             description: This table contains data of all charts
+          - name: dashboard_roles
+            identifier: dashboard_roles
+            description: This table contains mapping roles attached to a dashboard
