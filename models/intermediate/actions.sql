@@ -41,6 +41,7 @@ cte_slices AS (
         ) }}
 )
 SELECT
+    logs.id AS action_id,
     user_roles.user_id,
     user_roles.user_name,
     user_roles.created_on AS user_created_on,
