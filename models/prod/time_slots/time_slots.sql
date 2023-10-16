@@ -26,7 +26,12 @@ get_all_possible_monthly_date_ranges AS (
         create_date_series
         CROSS JOIN get_month_end_date
     WHERE
-        date_month < month_end_date
+        EXTRACT(
+            days
+            FROM
+                month_end_date - date_month
+        ) :: INT < 32
+        AND date_month < month_end_date
 )
 SELECT
     *

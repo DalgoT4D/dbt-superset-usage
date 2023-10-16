@@ -165,7 +165,6 @@ new_users AS (
         LEFT JOIN actions
         ON params.role_name = actions.role_name
         AND params.dashboard_title = actions.dashboard_title
-        AND actions.user_created_on >= params.month_start_date
         AND actions.user_created_on <= params.month_end_date
     GROUP BY
         params.role_name,
