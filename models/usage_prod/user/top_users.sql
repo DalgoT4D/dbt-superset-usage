@@ -3,40 +3,8 @@
     schema = "usage_prod"
 ) }}
 
-WITH params AS (
+WITH actions_all_roles AS (
 
-    SELECT
-        *
-    FROM
-        {{ ref('time_slots') }}
-        CROSS JOIN (
-            SELECT
-                "name" AS role_name
-            FROM
-                {{ ref('roles') }}
-            UNION
-            SELECT
-                'All' AS role_name
-        ) roles
-        CROSS JOIN (
-            SELECT
-                dashboard_title
-            FROM
-                {{ ref('dashboards') }}
-            WHERE
-                published IS TRUE
-            UNION
-            SELECT
-                'All' AS dashboard_title
-        ) dashboards
-        CROSS JOIN (
-            SELECT
-                org
-            FROM
-                {{ ref('orgs') }}
-        ) org
-),
-actions_all_roles AS (
     SELECT
         action_id,
         user_id,
@@ -49,9 +17,6 @@ actions_all_roles AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         dashboard_title,
         dashboard_created_on,
         ROW_NUMBER() over (
@@ -71,9 +36,6 @@ actions_all_dashboards AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         CASE
             WHEN dashboard_title IS NOT NULL THEN 'All'
             ELSE dashboard_title
@@ -99,9 +61,6 @@ actions_all AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         CASE
             WHEN dashboard_title IS NOT NULL THEN 'All'
             ELSE dashboard_title
@@ -124,9 +83,6 @@ actions AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         dashboard_title,
         dashboard_created_on,
         1 AS row_no,
@@ -166,7 +122,7 @@ user_action_counts AS (
         actions.user_name,
         SUM(action_count) AS action_count
     FROM
-        params
+        {{ ref('params') }} AS params
         LEFT JOIN actions
         ON params.role_name = actions.role_name
         AND params.dashboard_title = actions.dashboard_title

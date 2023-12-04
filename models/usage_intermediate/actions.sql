@@ -34,7 +34,7 @@ SELECT
     user_roles.org,
     logs.action,
     1 AS action_count,
-    logs.dttm AS action_date,
+    action_date,
     cte_dashboards.dashboard_title,
     cte_dashboards.created_on AS dashboard_created_on
 FROM

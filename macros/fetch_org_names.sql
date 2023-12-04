@@ -1,3 +1,3 @@
 {% macro fetch_org_names() -%}
-    {{ return(['sneha', 'tech4dev']) }}
+    {{ return(['sneha']) }}
 {%- endmacro %}

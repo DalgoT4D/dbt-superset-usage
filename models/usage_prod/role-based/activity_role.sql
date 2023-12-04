@@ -37,9 +37,6 @@ actions_all_dashboards AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         CASE
             WHEN dashboard_title IS NOT NULL THEN 'All'
             ELSE dashboard_title
@@ -62,9 +59,6 @@ actions AS (
         action,
         action_count,
         action_date,
-        chart_title,
-        chart_viz,
-        chart_created_on,
         dashboard_title,
         dashboard_created_on,
         1 AS row_no,

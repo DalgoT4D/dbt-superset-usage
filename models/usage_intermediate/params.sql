@@ -3,8 +3,14 @@
     schema = "usage_int"
 ) }}
 
-WITH org_start_end_dates AS (
-
+WITH create_date_series AS (
+    {{ dbt_utils.date_spine(
+        datepart = "month",
+        start_date = "(select cast(date_trunc('month', min(action_date)) as date) from" + ref('logs') | string + ")",
+        end_date = "(select cast(date_trunc('month', max(action_date)) as date) + INTERVAL '1 MONTH' from" + ref('logs') | string + ")"
+    ) }}
+),
+org_start_end_dates AS (
     SELECT
         org,
         DATE_TRUNC('month', MIN(action_date) - INTERVAL '1 month') AS org_start_date,
@@ -13,13 +19,6 @@ WITH org_start_end_dates AS (
         {{ ref('logs') }}
     GROUP BY
         org
-),
-create_date_series AS (
-    {{ dbt_utils.date_spine(
-        datepart = "month",
-        start_date = "(select cast(date_trunc('month', min(action_date)) as date) from" + ref('logs') | string + ")",
-        end_date = "(select cast(date_trunc('month', max(action_date)) as date) + INTERVAL '1 MONTH' from" + ref('logs') | string + ")"
-    ) }}
 ),
 get_month_end_date AS (
     SELECT
@@ -99,7 +98,7 @@ role_params AS (
         {{ ref('user_roles') }} AS user_roles
         INNER JOIN {{ ref('roles') }} AS roles
         ON user_roles.role_id = roles.id
-        ON user_roles.org = roles.org
+        AND user_roles.org = roles.org
     GROUP BY
         user_roles.org,
         user_roles.role_id,
