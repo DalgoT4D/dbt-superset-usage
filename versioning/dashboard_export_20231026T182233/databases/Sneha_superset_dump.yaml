@@ -1,0 +1,13 @@
+database_name: Sneha superset dump
+sqlalchemy_uri: postgresql+psycopg2://postgres:XXXXXXXXXX@ddp-staging.c4hvhyuxrcet.ap-south-1.rds.amazonaws.com:5432/sneha_superset_dump
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+uuid: e281321c-9010-4575-a3c9-ec1d31311e1c
+version: 1.0.0

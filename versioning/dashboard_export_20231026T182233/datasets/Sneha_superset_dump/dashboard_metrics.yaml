@@ -1,0 +1,75 @@
+cache_timeout: null
+columns:
+- advanced_data_type: null
+  column_name: role_name
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: VARCHAR
+  verbose_name: null
+- advanced_data_type: null
+  column_name: month_start_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: month_end_date
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: true
+  python_date_format: null
+  type: DATE
+  verbose_name: null
+- advanced_data_type: null
+  column_name: active_dashboards
+  description: null
+  expression: null
+  extra: {}
+  filterable: true
+  groupby: true
+  is_active: true
+  is_dttm: false
+  python_date_format: null
+  type: BIGINT
+  verbose_name: null
+database_uuid: e281321c-9010-4575-a3c9-ec1d31311e1c
+default_endpoint: null
+description: null
+extra: null
+fetch_values_predicate: null
+filter_select_enabled: false
+main_dttm_col: month_start_date
+metrics:
+- d3format: null
+  description: null
+  expression: COUNT(*)
+  extra:
+    warning_markdown: ''
+  metric_name: count
+  metric_type: count
+  verbose_name: COUNT(*)
+  warning_text: null
+offset: 0
+params: null
+schema: prod_v6
+sql: ''
+table_name: dashboard_metrics
+template_params: null
+uuid: 42fcf4a7-baee-4a55-8ea7-3b07ad09b568
+version: 1.0.0

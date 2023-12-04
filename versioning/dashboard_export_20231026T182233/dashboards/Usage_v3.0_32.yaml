@@ -1,0 +1,421 @@
+css: ''
+dashboard_title: Superset usage v6.0
+description: null
+metadata:
+  chart_configuration:
+    '237':
+      crossFilters:
+        chartsInScope:
+        - 235
+        - 236
+        - 238
+        - 239
+        - 240
+        - 241
+        scope:
+          excluded:
+          - 237
+          rootPath:
+          - ROOT_ID
+      id: 237
+    '239':
+      crossFilters:
+        chartsInScope:
+        - 235
+        - 236
+        - 237
+        - 238
+        - 240
+        - 241
+        scope:
+          excluded:
+          - 239
+          rootPath:
+          - ROOT_ID
+      id: 239
+    '240':
+      crossFilters:
+        chartsInScope:
+        - 235
+        - 236
+        - 237
+        - 238
+        - 239
+        - 241
+        scope:
+          excluded:
+          - 240
+          rootPath:
+          - ROOT_ID
+      id: 240
+    '241':
+      crossFilters:
+        chartsInScope:
+        - 235
+        - 236
+        - 237
+        - 238
+        - 239
+        - 240
+        scope:
+          excluded:
+          - 241
+          rootPath:
+          - ROOT_ID
+      id: 241
+  color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices: {}
+  label_colors: {}
+  native_filter_configuration:
+  - cascadeParentIds: []
+    chartsInScope:
+    - 235
+    - 236
+    - 237
+    - 238
+    - 239
+    - 240
+    - 241
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      __cache:
+        label: All
+        validateMessage: false
+        validateStatus: false
+        value:
+        - All
+      extraFormData:
+        filters:
+        - col: role_name
+          op: IN
+          val:
+          - All
+      filterState:
+        label: All
+        validateMessage: false
+        validateStatus: false
+        value:
+        - All
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-W_9MHeVLq
+    name: Role
+    scope:
+      excluded: []
+      rootPath:
+      - TAB-B0DDOSdBOM
+    tabsInScope:
+    - TAB-B0DDOSdBOM
+    - TAB-k3KxKxFfi
+    targets:
+    - column:
+        name: role_name
+      datasetUuid: 75646305-95b2-4fdd-a6ab-423de7ea680d
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 235
+    - 236
+    - 237
+    - 238
+    - 239
+    - 240
+    - 241
+    controlValues:
+      defaultToFirstItem: false
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+    defaultDataMask:
+      __cache:
+        label: All
+        validateMessage: false
+        validateStatus: false
+        value:
+        - All
+      extraFormData:
+        filters:
+        - col: dashboard_title
+          op: IN
+          val:
+          - All
+      filterState:
+        label: All
+        validateMessage: false
+        validateStatus: false
+        value:
+        - All
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-z1uCHR4d6
+    name: Dashboard
+    scope:
+      excluded:
+      - 268
+      - 263
+      rootPath:
+      - TAB-B0DDOSdBOM
+      - TAB-k3KxKxFfi
+    tabsInScope:
+    - TAB-B0DDOSdBOM
+    - TAB-k3KxKxFfi
+    targets:
+    - column:
+        name: dashboard_title
+      datasetUuid: 75646305-95b2-4fdd-a6ab-423de7ea680d
+    type: NATIVE_FILTER
+  - cascadeParentIds: []
+    chartsInScope:
+    - 237
+    - 239
+    controlValues:
+      defaultToFirstItem: true
+      enableEmptyFilter: true
+      inverseSelection: false
+      multiSelect: false
+      searchAllOptions: false
+      sortAscending: false
+    defaultDataMask:
+      extraFormData: {}
+      filterState: {}
+      ownState: {}
+    description: ''
+    filterType: filter_select
+    id: NATIVE_FILTER-Clx7XYPoh
+    name: Month
+    requiredFirst: true
+    scope:
+      excluded:
+      - 265
+      - 262
+      - 268
+      rootPath:
+      - TAB-B0DDOSdBOM
+    tabsInScope:
+    - TAB-B0DDOSdBOM
+    targets:
+    - column:
+        name: month_start_date
+      datasetUuid: 75646305-95b2-4fdd-a6ab-423de7ea680d
+    type: NATIVE_FILTER
+  refresh_frequency: 0
+  shared_label_colors:
+    Admin: '#666666'
+    Gamma: '#A868B7'
+    SNEHA APD-PD: '#E04355'
+    SNEHA CO: '#1FA8C9'
+    SNEHA M&E: '#5AC189'
+    SNEHA PC: '#FF7F44'
+    SNEHA PO: '#454E7C'
+    SUM(action_count): '#1FA8C9'
+  show_native_filters: true
+  timed_refresh_immune_slices: []
+position:
+  CHART-explore-235-1:
+    children: []
+    id: CHART-explore-235-1
+    meta:
+      chartId: 265
+      height: 50
+      sliceName: Users onboarded on superset
+      uuid: 40bf56c9-6218-417b-b5bc-2bd4742d13ac
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    - ROW-CgxNik493N
+    type: CHART
+  CHART-explore-236-1:
+    children: []
+    id: CHART-explore-236-1
+    meta:
+      chartId: 262
+      height: 50
+      sliceName: Active users
+      uuid: c943f78e-2e8b-4337-8e79-9db6d8e6ccb2
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    - ROW-CgxNik493N
+    type: CHART
+  CHART-explore-237-1:
+    children: []
+    id: CHART-explore-237-1
+    meta:
+      chartId: 267
+      height: 50
+      sliceName: Top active users
+      uuid: 9e31d577-2209-4459-a1ab-5be4b2311fe3
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    - ROW-CgxNik493N
+    type: CHART
+  CHART-explore-238-1:
+    children: []
+    id: CHART-explore-238-1
+    meta:
+      chartId: 268
+      height: 50
+      sliceName: Active dashboards
+      uuid: c0a828db-b27d-44a0-a4ac-644212d459d3
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    - ROW-U_VN6Gh7gi
+    type: CHART
+  CHART-explore-239-1:
+    children: []
+    id: CHART-explore-239-1
+    meta:
+      chartId: 263
+      height: 50
+      sliceName: Top visited dashboards
+      uuid: 6c8f9d80-9f6b-4857-bf6c-3b8484e89f9e
+      width: 4
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    - ROW-U_VN6Gh7gi
+    type: CHART
+  CHART-explore-240-1:
+    children: []
+    id: CHART-explore-240-1
+    meta:
+      chartId: 264
+      height: 50
+      sliceName: User activity by role
+      uuid: e1586e17-3467-45be-b6b9-91a43a36bbae
+      width: 7
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-k3KxKxFfi
+    - ROW-jBmIvPgQ5
+    type: CHART
+  CHART-explore-241-1:
+    children: []
+    id: CHART-explore-241-1
+    meta:
+      chartId: 266
+      height: 50
+      sliceName: Active users by role
+      uuid: c005bc2d-01fd-4af3-b8e0-4588ba81aeb5
+      width: 5
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-k3KxKxFfi
+    - ROW-jBmIvPgQ5
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children: []
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Usage v1.0
+    type: HEADER
+  ROOT_ID:
+    children:
+    - TABS-CexHvLv1jf
+    id: ROOT_ID
+    type: ROOT
+  ROW-CgxNik493N:
+    children:
+    - CHART-explore-235-1
+    - CHART-explore-236-1
+    - CHART-explore-237-1
+    id: ROW-CgxNik493N
+    meta:
+      '0': ROOT_ID
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    type: ROW
+  ROW-U_VN6Gh7gi:
+    children:
+    - CHART-explore-238-1
+    - CHART-explore-239-1
+    id: ROW-U_VN6Gh7gi
+    meta:
+      '0': ROOT_ID
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-B0DDOSdBOM
+    type: ROW
+  ROW-jBmIvPgQ5:
+    children:
+    - CHART-explore-240-1
+    - CHART-explore-241-1
+    id: ROW-jBmIvPgQ5
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    - TAB-k3KxKxFfi
+    type: ROW
+  TAB-B0DDOSdBOM:
+    children:
+    - ROW-CgxNik493N
+    - ROW-U_VN6Gh7gi
+    id: TAB-B0DDOSdBOM
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Users/dashboards
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    type: TAB
+  TAB-k3KxKxFfi:
+    children:
+    - ROW-jBmIvPgQ5
+    id: TAB-k3KxKxFfi
+    meta:
+      defaultText: Tab title
+      placeholder: Tab title
+      text: Role based
+    parents:
+    - ROOT_ID
+    - TABS-CexHvLv1jf
+    type: TAB
+  TABS-CexHvLv1jf:
+    children:
+    - TAB-B0DDOSdBOM
+    - TAB-k3KxKxFfi
+    id: TABS-CexHvLv1jf
+    meta: {}
+    parents:
+    - ROOT_ID
+    type: TABS
+slug: null
+title: new title
+uuid: 54c9d9ad-1baa-4456-8ad5-15c202db0a14
+version: 1.0.0
