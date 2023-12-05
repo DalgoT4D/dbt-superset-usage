@@ -120,7 +120,10 @@ total_users AS (
         params.month_end_date,
         COUNT(
             DISTINCT actions.user_id
-        ) AS total_users
+        ) AS total_users,
+        SUM(
+            actions.action_count
+        ) AS total_visits
     FROM
         {{ ref('params') }} AS params
         LEFT JOIN actions
@@ -188,6 +191,7 @@ SELECT
     total_users.month_start_date,
     total_users.month_end_date,
     total_users.total_users,
+    total_users.total_visits,
     CASE
         WHEN active_users.active_users IS NULL THEN 0
         ELSE active_users.active_users
@@ -198,7 +202,14 @@ SELECT
             'total_users'
         ) }},
         0
-    ) AS active_over_total_ratio
+    ) AS active_over_total_ratio,
+    COALESCE(
+        {{ dbt_utils.safe_divide(
+            'total_visits',
+            'active_users'
+        ) }},
+        0
+    ) AS visits_per_active_user
 FROM
     total_users
     LEFT JOIN active_users
