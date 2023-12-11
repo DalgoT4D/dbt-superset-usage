@@ -124,16 +124,8 @@ SELECT
     actions.dashboard_name,
     SUM(action_count) AS total_visits
 FROM
-    {{ ref('params') }}
-    LEFT JOIN (
-        SELECT
-            *
-        FROM
-            actions
-        WHERE
-            dashboard_title IS NOT NULL
-            AND action = 'DashboardRestApi.get' -- consider only the visits of dashbords
-    ) actions
+    {{ ref('params_user') }} AS params
+    LEFT JOIN actions
     ON params.role_name = actions.role_name
     AND params.org = actions.org
     AND actions.action_date >= params.month_start_date

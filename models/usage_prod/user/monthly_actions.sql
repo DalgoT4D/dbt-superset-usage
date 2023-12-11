@@ -118,11 +118,11 @@ user_action_counts AS (
         params.month_start_date,
         params.month_end_date,
         params.org,
-        actions.user_id,
-        actions.user_name,
-        SUM(action_count) AS action_count
+        params.user_id,
+        params.user_name,
+        COALESCE(SUM(action_count), 0) AS action_count
     FROM
-        {{ ref('params') }} AS params
+        {{ ref('params_user') }} AS params
         LEFT JOIN actions
         ON params.role_name = actions.role_name
         AND params.dashboard_title = actions.dashboard_title
@@ -135,10 +135,14 @@ user_action_counts AS (
         params.month_start_date,
         params.month_end_date,
         params.org,
-        actions.user_id,
-        actions.user_name
+        params.user_id,
+        params.user_name
 )
 SELECT
-    *
+    *,
+    CASE
+        WHEN action_count > 0 THEN 'yes'
+        ELSE 'no'
+    END AS is_active
 FROM
     user_action_counts
