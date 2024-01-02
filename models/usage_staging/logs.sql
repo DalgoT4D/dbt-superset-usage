@@ -8,6 +8,10 @@
     SELECT
         *,
         dttm AS action_date,
+        "json" :: json ->> 'class_name' AS resource_name,
+        (
+            "json" :: json ->> 'obj_id'
+        ) :: INT AS resource_id,
         '{{ org }}' AS org
     FROM
         {{ source(
