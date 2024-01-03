@@ -46,17 +46,15 @@ FROM
             {{ ref('logs') }}
             logs
             INNER JOIN cte_dashboards
-            ON cte_dashboards.id = logs.resource_id
+            ON cte_dashboards.id = logs.dashboard_id
             AND cte_dashboards.org = logs.org
     ) AS logs
     ON user_roles.user_id = logs.user_id
-    AND logs.resource_id IS NOT NULL
-    AND logs.resource_name = 'Dashboard'
     AND user_roles.org = logs.org
     LEFT JOIN cte_dashboards
-    ON cte_dashboards.id = logs.resource_id
+    ON cte_dashboards.id = logs.dashboard_id
     AND cte_dashboards.org = logs.org
 WHERE
     logs.action IN (
-        'count' -- consider only the dashboard visits
+        'DashboardRestApi.get' -- consider only the dashboard visits
     )
