@@ -128,6 +128,7 @@ user_action_counts AS (
         AND params.dashboard_title = actions.dashboard_title
         AND actions.action_date >= params.month_start_date
         AND actions.action_date <= params.month_end_date
+        AND actions.user_id = params.user_id
         AND params.org = actions.org
     GROUP BY
         params.role_name,

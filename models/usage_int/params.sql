@@ -58,36 +58,35 @@ month_start_end_params AS (
             month_end_date BETWEEN org_start_date
             AND org_end_date
         )
-),
-org_dashboard_params AS (
-    SELECT
-        dashboards.org,
-        dashboards.id,
-        dashboards.dashboard_title
-    FROM
-        {{ ref('dashboards') }}
-        dashboards
-        INNER JOIN {{ ref('dashboard_roles') }}
-        dashboard_roles
-        ON dashboards.id = dashboard_roles.dashboard_id
-        AND dashboards.org = dashboard_roles.org
-    WHERE
-        dashboards.published IS TRUE
-    GROUP BY
-        dashboards.org,
-        dashboards.id,
-        dashboards.dashboard_title
-    UNION ALL
-    SELECT
-        org,
-        NULL,
-        'All'
-    FROM
-        {{ ref('dashboards') }}
-    WHERE
-        published IS TRUE
-    GROUP BY
-        org
+) {# org_dashboard_params AS (
+SELECT
+    dashboards.org,
+    dashboards.id,
+    dashboards.dashboard_title
+FROM
+    {{ ref('dashboards') }}
+    dashboards
+    INNER JOIN {{ ref('dashboard_roles') }}
+    dashboard_roles
+    ON dashboards.id = dashboard_roles.dashboard_id
+    AND dashboards.org = dashboard_roles.org
+WHERE
+    dashboards.published IS TRUE
+GROUP BY
+    dashboards.org,
+    dashboards.id,
+    dashboards.dashboard_title
+UNION ALL
+SELECT
+    org,
+    NULL,
+    'All'
+FROM
+    {{ ref('dashboards') }}
+WHERE
+    published IS TRUE
+GROUP BY
+    org
 ),
 role_params AS (
     SELECT
@@ -126,4 +125,10 @@ FROM
     INNER JOIN org_dashboard_params AS dash_param
     ON month_param.org = dash_param.org
     INNER JOIN role_params AS role_param
-    ON month_param.org = role_param.org
+    ON month_param.org = role_param.org #}
+SELECT
+    month_param.org,
+    month_param.month_start_date,
+    month_param.month_end_date
+FROM
+    month_start_end_params AS month_param

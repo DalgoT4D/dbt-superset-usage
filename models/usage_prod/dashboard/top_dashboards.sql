@@ -128,6 +128,8 @@ FROM
     LEFT JOIN actions
     ON params.role_name = actions.role_name
     AND params.org = actions.org
+    AND params.dashboard_title = actions.dashboard_title
+    AND actions.user_id = params.user_id
     AND actions.action_date >= params.month_start_date
     AND actions.action_date <= params.month_end_date
 GROUP BY
