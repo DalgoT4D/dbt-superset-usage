@@ -1,5 +1,5 @@
 {{ config(
-    materialized = "table",
+    materialized = "incremental",
     schema = "usage_staging"
 ) }}
 
@@ -18,8 +18,21 @@
             org,
             'logs'
         ) }}
+    WHERE
+        action IN (
+            'DashboardRestApi.get' -- consider only the dashboard visits
+        )
 
-        {% if not loop.last -%}
-        UNION ALL
-        {%- endif %}
-    {% endfor %}
+{% if is_incremental() %}
+AND dttm > (
+    SELECT
+        MAX(dttm)
+    FROM
+        {{ this }}
+)
+{% endif %}
+
+{% if not loop.last -%}
+UNION ALL
+{%- endif %}
+{% endfor %}
