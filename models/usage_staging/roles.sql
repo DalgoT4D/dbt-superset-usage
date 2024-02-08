@@ -6,7 +6,8 @@
 {% for org in fetch_org_names() %}
 
     SELECT
-        *,
+        "name",
+        id,
         '{{ org }}' AS org
     FROM
         {{ source(
