@@ -6,12 +6,16 @@
 {% for org in fetch_org_names() %}
 
     SELECT
-        *,
+        duration_ms,
+        referrer,
+        user_id,
+        dttm,
+        json,
+        action,
+        id,
+        slice_id,
+        dashboard_id,
         dttm AS action_date,
-        "json" :: json ->> 'class_name' AS resource_name,
-        (
-            "json" :: json ->> 'obj_id'
-        ) :: INT AS resource_id,
         '{{ org }}' AS org
     FROM
         {{ source(
@@ -29,6 +33,8 @@ AND dttm > (
         MAX(dttm)
     FROM
         {{ this }}
+    WHERE
+        org = '{{ org }}'
 )
 {% endif %}
 

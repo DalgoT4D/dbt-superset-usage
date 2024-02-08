@@ -6,7 +6,9 @@
 {% for org in fetch_org_names() %}
 
     SELECT
-        *,
+        role_id,
+        id,
+        dashboard_id,
         '{{ org }}' AS org
     FROM
         {{ source(
