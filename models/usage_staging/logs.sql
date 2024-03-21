@@ -3,6 +3,7 @@
     schema = "usage_staging"
 ) }}
 
+
 {% for org in fetch_org_names() %}
 
     SELECT
@@ -28,14 +29,16 @@
         )
 
 {% if is_incremental() %}
-AND dttm > (
-    SELECT
-        MAX(dttm)
-    FROM
-        {{ this }}
-    WHERE
-        org = '{{ org }}'
-)
+    {% if org != 'atecf' %}
+    AND dttm > (
+        SELECT
+            MAX(dttm)
+        FROM
+            {{ this }}
+        WHERE
+            org = '{{ org }}'
+    )
+    {% endif %}
 {% endif %}
 
 {% if not loop.last -%}
