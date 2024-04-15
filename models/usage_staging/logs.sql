@@ -29,7 +29,6 @@
         )
 
 {% if is_incremental() %}
-    {% if org != 'noora_health' %}
     AND dttm > (
         SELECT
             MAX(dttm)
@@ -38,7 +37,6 @@
         WHERE
             org = '{{ org }}'
     )
-    {% endif %}
 {% endif %}
 
 {% if not loop.last -%}
