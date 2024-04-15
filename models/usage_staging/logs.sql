@@ -29,7 +29,7 @@
         )
 
 {% if is_incremental() %}
-    {% if org != 'atcef' %}
+    {% if org != 'atecf' %}
     AND dttm > (
         SELECT
             MAX(dttm)
