@@ -51,9 +51,9 @@ sources:
           - name: dashboard_roles
             identifier: dashboard_roles
             description: This table contains mapping roles attached to a dashboard
-    - name: atecf
-      description: Atecf Superset metadata
-      schema: atecf
+    - name: atcef
+      description: Atcef Superset metadata
+      schema: atcef
       tables:
           - name: logs
             identifier: logs
