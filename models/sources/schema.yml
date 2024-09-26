@@ -126,4 +126,29 @@ sources:
           - name: dashboard_roles
             identifier: dashboard_roles
             description: This table contains mapping roles attached to a dashboard
+    - name: stir
+      description: Stir Superset metadata
+      schema: stir
+      tables:
+          - name: logs
+            identifier: logs
+            description: This contains the data of logs and actions
+          - name: users
+            identifier: ab_user
+            description: This table contains details of the superset users
+          - name: dashboards
+            identifier: dashboards
+            description: This table contains details of the dashboards createds
+          - name: user_roles
+            identifier: ab_user_role
+            description: This table contains mapping of users and roles
+          - name: roles
+            identifier: ab_role
+            description: This table contains list of all roles
+          - name: slices
+            identifier: slices
+            description: This table contains data of all charts
+          - name: dashboard_roles
+            identifier: dashboard_roles
+            description: This table contains mapping roles attached to a dashboard
 
