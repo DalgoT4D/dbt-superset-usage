@@ -1,0 +1,184 @@
+version: 2
+
+models:
+  - name: logs
+    description: "This model captures the logs of dashboard visits."
+    columns:
+      - name: duration_ms
+        description: "The duration of the visit in milliseconds."
+      - name: referrer
+        description: "The referrer URL from which the visit originated."
+      - name: user_id
+        description: "The ID of the user who visited the dashboard."
+      - name: dttm
+        description: "The date and time of the visit."
+      - name: json
+        description: "Additional JSON data related to the visit."
+      - name: action
+        description: "The action performed, e.g., 'DashboardRestApi.get'."
+      - name: id
+        description: "The unique identifier for the log entry."
+      - name: slice_id
+        description: "The ID of the slice (chart) viewed during the visit."
+      - name: dashboard_id
+        description: "The ID of the dashboard viewed during the visit."
+      - name: action_date
+        description: "The date and time of the action, same as dttm."
+      - name: org
+        description: "The organization to which the log entry belongs."
+
+  - name: dashboards
+    description: "This model captures the details of dashboards."
+    columns:
+      - name: created_by_fk
+        description: "The foreign key of the user who created the dashboard."
+      - name: css
+        description: "The CSS styling applied to the dashboard."
+      - name: description
+        description: "The description of the dashboard."
+      - name: certified_by
+        description: "The entity that certified the dashboard."
+      - name: published
+        description: "Indicates whether the dashboard is published."
+      - name: uuid
+        description: "The UUID of the dashboard."
+      - name: external_url
+        description: "The external URL of the dashboard."
+      - name: dashboard_title
+        description: "The title of the dashboard."
+      - name: created_on
+        description: "The date and time when the dashboard was created."
+      - name: position_json
+        description: "The JSON data representing the position of elements on the dashboard."
+      - name: is_managed_externally
+        description: "Indicates whether the dashboard is managed externally."
+      - name: id
+        description: "The unique identifier for the dashboard."
+      - name: slug
+        description: "The slug of the dashboard."
+      - name: changed_on
+        description: "The date and time when the dashboard was last changed."
+      - name: json_metadata
+        description: "The JSON metadata of the dashboard."
+      - name: certification_details
+        description: "Details about the certification of the dashboard."
+      - name: org
+        description: "The organization to which the dashboard belongs."
+
+  - name: user_roles
+    description: "This model captures the roles assigned to users."
+    columns:
+      - name: role_id
+        description: "The ID of the role assigned to the user."
+      - name: user_id
+        description: "The ID of the user."
+      - name: id
+        description: "The unique identifier for the user role entry."
+      - name: org
+        description: "The organization to which the user role entry belongs."
+
+  - name: dashboard_roles
+    description: "This model captures the roles assigned to dashboards."
+    columns:
+      - name: role_id
+        description: "The ID of the role assigned to the dashboard."
+      - name: id
+        description: "The unique identifier for the dashboard role entry."
+      - name: dashboard_id
+        description: "The ID of the dashboard."
+      - name: org
+        description: "The organization to which the dashboard role entry belongs."
+
+  - name: users
+    description: "This model captures the details of users."
+    columns:
+      - name: created_by_fk
+        description: "The foreign key of the user who created this user entry."
+      - name: last_login
+        description: "The date and time of the user's last login."
+      - name: active
+        description: "Indicates whether the user is active."
+      - name: last_name
+        description: "The last name of the user."
+      - name: fail_login_count
+        description: "The number of failed login attempts."
+      - name: login_count
+        description: "The total number of login attempts."
+      - name: password
+        description: "The hashed password of the user."
+      - name: blob
+        description: "Additional binary data related to the user."
+      - name: created_on
+        description: "The date and time when the user was created."
+      - name: changed_by_fk
+        description: "The foreign key of the user who last changed this user entry."
+      - name: id
+        description: "The unique identifier for the user."
+      - name: first_name
+        description: "The first name of the user."
+      - name: email
+        description: "The email address of the user."
+      - name: changed_on
+        description: "The date and time when the user was last changed."
+      - name: username
+        description: "The username of the user."
+      - name: org
+        description: "The organization to which the user belongs."
+
+  - name: slices
+    description: "This model captures the details of slices (charts)."
+    columns:
+      - name: created_by_fk
+        description: "The foreign key of the user who created the slice."
+      - name: datasource_id
+        description: "The ID of the datasource used by the slice."
+      - name: perm
+        description: "The permissions associated with the slice."
+      - name: cache_timeout
+        description: "The cache timeout for the slice."
+      - name: last_saved_at
+        description: "The date and time when the slice was last saved."
+      - name: description
+        description: "The description of the slice."
+      - name: certified_by
+        description: "The entity that certified the slice."
+      - name: viz_type
+        description: "The visualization type of the slice."
+      - name: params
+        description: "The parameters used by the slice."
+      - name: query_context
+        description: "The query context of the slice."
+      - name: uuid
+        description: "The UUID of the slice."
+      - name: schema_perm
+        description: "The schema permissions associated with the slice."
+      - name: slice_name
+        description: "The name of the slice."
+      - name: external_url
+        description: "The external URL of the slice."
+      - name: created_on
+        description: "The date and time when the slice was created."
+      - name: datasource_type
+        description: "The type of the datasource used by the slice."
+      - name: changed_by_fk
+        description: "The foreign key of the user who last changed the slice."
+      - name: last_saved_by_fk
+        description: "The foreign key of the user who last saved the slice."
+      - name: is_managed_externally
+        description: "Indicates whether the slice is managed externally."
+      - name: datasource_name
+        description: "The name of the datasource used by the slice."
+      - name: id
+        description: "The unique identifier for the slice."
+      - name: changed_on
+        description: "The date and time when the slice was last changed."
+      - name: certification_details
+        description: "Details about the certification of the slice."
+      - name: org
+        description: "The organization to which the slice belongs."
+
+  - name: orgs
+    description: "This model captures the details of organizations."
+    columns:
+      - name: org
+        description: "The name of the organization."

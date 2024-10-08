@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: top_dashboards
+    description: "This model captures the top dashboards based on user actions and visits."
+    columns:
+      - name: role_name
+        description: "The name of the role associated with the actions."
+      - name: month_start_date
+        description: "The start date of the month for the actions."
+      - name: month_end_date
+        description: "The end date of the month for the actions."
+      - name: org
+        description: "The organization to which the actions belong."
+      - name: dashboard_title
+        description: "The title of the dashboard associated with the actions."
+      - name: dashboard_name
+        description: "The name of the dashboard associated with the actions."
+      - name: total_visits
+        description: "The total number of visits to the dashboard."
