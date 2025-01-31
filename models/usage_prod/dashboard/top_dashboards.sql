@@ -123,7 +123,28 @@ SELECT
     actions.dashboard_title,
     actions.dashboard_name,
     SUM(action_count) AS total_visits,
-    MAX(action_date) AS last_visited_at
+    MAX(action_date) AS last_visited_at,
+    (
+        SELECT actions.user_name 
+        FROM {{ ref('params_user') }} AS params
+            {{ ref('params_user') }} AS params
+            LEFT JOIN actions
+            ON params.role_name = actions.role_name
+            AND params.org = actions.org
+            AND params.dashboard_title = actions.dashboard_title
+            AND actions.user_id = params.user_id
+            AND actions.action_date >= params.month_start_date
+            AND actions.action_date <= params.month_end_date
+        GROUP BY
+            params.role_name,
+            params.month_start_date,
+            params.month_end_date,
+            params.org,
+            actions.dashboard_title,
+            actions.dashboard_name
+        ORDER BY action_date DESC
+        LIMIT 1
+    ) AS last_visited_by
 FROM
     {{ ref('params_user') }} AS params
     LEFT JOIN actions
