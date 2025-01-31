@@ -125,9 +125,9 @@ SELECT
     SUM(action_count) AS total_visits,
     MAX(action_date) AS last_visited_at,
     (
-        SELECT actions.user_name 
+        SELECT 
+            actions.user_name 
         FROM {{ ref('params_user') }} AS params
-            {{ ref('params_user') }} AS params
             LEFT JOIN actions
             ON params.role_name = actions.role_name
             AND params.org = actions.org
