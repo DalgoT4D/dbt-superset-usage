@@ -114,8 +114,8 @@ actions AS (
         actions_all
     WHERE
         row_no = 1
-)
-WITH top_dashboards AS (
+),
+top_dashboards AS (
     SELECT
         params.role_name,
         params.month_start_date,
@@ -141,8 +141,8 @@ WITH top_dashboards AS (
         params.org,
         actions.dashboard_title,
         actions.dashboard_name
-)
-WITH top_dashboards_last_visited_by AS (
+),
+top_dashboards_last_visited_by AS (
     SELECT 
         params.role_name,
         params.month_start_date,
@@ -164,14 +164,16 @@ WITH top_dashboards_last_visited_by AS (
         AND actions.action_date >= params.month_start_date
         AND actions.action_date <= params.month_end_date
 )
-SELECT td.*, td_lvb.user_name
+SELECT 
+    td.*, 
+    td_lvb.user_name as last_visited_by
 FROM top_dashboards AS td
 INNER JOIN (
     SELECT *
     FROM top_dashboards_last_visited_by
     WHERE row_no = 1
-) AS td_lvb
-ON td.role_name = td_lvb.role_name AND
+) AS td_lvb 
+  ON td.role_name = td_lvb.role_name AND
     td.month_start_date = td_lvb.month_start_date AND
     td.month_end_date = td_lvb.month_end_date AND
     td.org = td_lvb.org AND
