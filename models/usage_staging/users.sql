@@ -27,7 +27,7 @@
             org,
             'users'
         ) }}
-
+    WHERE active
         {% if not loop.last -%}
         UNION ALL
         {%- endif %}
