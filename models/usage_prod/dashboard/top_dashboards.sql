@@ -122,7 +122,8 @@ SELECT
     params.org,
     actions.dashboard_title,
     actions.dashboard_name,
-    SUM(action_count) AS total_visits
+    SUM(action_count) AS total_visits,
+    MAX(action_date) AS last_visited_at
 FROM
     {{ ref('params_user') }} AS params
     LEFT JOIN actions
