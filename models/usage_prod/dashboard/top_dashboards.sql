@@ -122,7 +122,6 @@ SELECT
     params.org,
     actions.dashboard_title,
     actions.dashboard_name,
-    actions.user_name,
     SUM(action_count) AS total_visits,
     MAX(action_date) AS last_visited_at
 FROM
@@ -140,5 +139,4 @@ GROUP BY
     params.month_end_date,
     params.org,
     actions.dashboard_title,
-    actions.dashboard_name,
-    actions.user_name
+    actions.dashboard_name
