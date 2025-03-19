@@ -29,6 +29,7 @@
         )
 
 {% if is_incremental() %}
+    {% if org != var('full_refresh_logs_for_org', 'default_org') %}
     AND dttm > (
         SELECT
             MAX(dttm)
@@ -37,6 +38,7 @@
         WHERE
             org = '{{ org }}'
     )
+    {% endif %}
 {% endif %}
 
 {% if not loop.last -%}
