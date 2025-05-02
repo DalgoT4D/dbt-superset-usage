@@ -23,13 +23,15 @@ export DBT_USAGE_VER=v1 && dbt run
 
 6. Update the `macros/fetch_org_names.sql` macros & add new org slug name
 
-7. Add a new source for the org (those 7 streams) in `models/sources/schema.yml`
+7. Add a new source for the org (those 7 streams) in `models/sources/schema.yml`. Name of the source should be same as its org slug
 
-8. Run a full refresh on logs. This is need for the first time 
+8. Run a full refresh on logs. This is needed for the first time 
 ```sh
-dbt run --select logs --vars '{"full_refresh_logs_for_org": "<new_org_slug>"}'
+export DBT_USAGE_VER=v1 && dbt run --vars '{"full_refresh_logs_for_org": "<new_org_slug>"}'
 ```
 
 9. Push all the code to git and submit the PR. 
 
 10. Setup a daily pipeline to sync the superset metadata for this org frmo the orchestrate page. Make sure its setup before the `Dbt transform` pipeline
+
+11. An example [PR](https://github.com/DalgoT4D/dbt-superset-usage/pull/22)
