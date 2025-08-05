@@ -229,7 +229,7 @@ sources:
     - name: dashboard_roles
       identifier: dashboard_roles
       description: This table contains mapping roles attached to a dashboard
-- name: tech4dev
+  - name: tech4dev
     description: Tech4Dev Superset metadata
     schema: tech4dev
     tables:
