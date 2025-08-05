@@ -25,31 +25,6 @@ sources:
     - name: dashboard_roles
       identifier: dashboard_roles
       description: This table contains mapping roles attached to a dashboard
-  - name: lahi
-    description: Lahi Superset metadata
-    schema: lahi
-    tables:
-    - name: logs
-      identifier: logs
-      description: This contains the data of logs and actions
-    - name: users
-      identifier: ab_user
-      description: This table contains details of the superset users
-    - name: dashboards
-      identifier: dashboards
-      description: This table contains details of the dashboards createds
-    - name: user_roles
-      identifier: ab_user_role
-      description: This table contains mapping of users and roles
-    - name: roles
-      identifier: ab_role
-      description: This table contains list of all roles
-    - name: slices
-      identifier: slices
-      description: This table contains data of all charts
-    - name: dashboard_roles
-      identifier: dashboard_roles
-      description: This table contains mapping roles attached to a dashboard
   - name: atcef
     description: Atcef Superset metadata
     schema: atcef
@@ -132,31 +107,6 @@ sources:
   - name: stir
     description: Stir Superset metadata
     schema: stir
-    tables:
-    - name: logs
-      identifier: logs
-      description: This contains the data of logs and actions
-    - name: users
-      identifier: ab_user
-      description: This table contains details of the superset users
-    - name: dashboards
-      identifier: dashboards
-      description: This table contains details of the dashboards createds
-    - name: user_roles
-      identifier: ab_user_role
-      description: This table contains mapping of users and roles
-    - name: roles
-      identifier: ab_role
-      description: This table contains list of all roles
-    - name: slices
-      identifier: slices
-      description: This table contains data of all charts
-    - name: dashboard_roles
-      identifier: dashboard_roles
-      description: This table contains mapping roles attached to a dashboard
-  - name: arogya_world
-    description: Argoya world Superset metadata
-    schema: arogya_world
     tables:
     - name: logs
       identifier: logs
@@ -279,3 +229,29 @@ sources:
     - name: dashboard_roles
       identifier: dashboard_roles
       description: This table contains mapping roles attached to a dashboard
+  - name: tech4dev
+    description: Tech4Dev Superset metadata
+    schema: tech4dev
+    tables:
+    - name: logs
+      identifier: logs
+      description: This contains the data of logs and actions
+    - name: users
+      identifier: ab_user
+      description: This table contains details of the superset users
+    - name: dashboards
+      identifier: dashboards
+      description: This table contains details of the dashboards createds
+    - name: user_roles
+      identifier: ab_user_role
+      description: This table contains mapping of users and roles
+    - name: roles
+      identifier: ab_role
+      description: This table contains list of all roles
+    - name: slices
+      identifier: slices
+      description: This table contains data of all charts
+    - name: dashboard_roles
+      identifier: dashboard_roles
+      description: This table contains mapping roles attached to a dashboard
+      
