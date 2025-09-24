@@ -120,6 +120,7 @@ user_action_counts AS (
         params.org,
         params.user_id,
         params.user_name,
+        params.email,
         COALESCE(SUM(action_count), 0) AS action_count
     FROM
         {{ ref('params_user') }} AS params
@@ -137,7 +138,8 @@ user_action_counts AS (
         params.month_end_date,
         params.org,
         params.user_id,
-        params.user_name
+        params.user_name,
+        params.email
 )
 SELECT
     *,

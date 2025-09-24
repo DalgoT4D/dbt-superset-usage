@@ -13,6 +13,7 @@ WITH dashboard_user_role AS (
         user_roles.role_name,
         user_roles.user_id,
         user_roles.user_name,
+        user_roles.email,
         user_roles.user_created_on
     FROM
         {{ ref('dashboards') }}
@@ -40,6 +41,7 @@ dashboard_user_role_all AS (
         dashboard_user_role.role_name,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
     FROM
         dashboard_user_role
@@ -49,6 +51,7 @@ dashboard_user_role_all AS (
         dashboard_user_role.role_name,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
     UNION ALL
     SELECT
@@ -59,6 +62,7 @@ dashboard_user_role_all AS (
         'All' AS role_name,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
     FROM
         dashboard_user_role
@@ -68,6 +72,7 @@ dashboard_user_role_all AS (
         dashboard_user_role.dashboard_title,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
     UNION ALL
     SELECT
@@ -78,6 +83,7 @@ dashboard_user_role_all AS (
         'All' AS role_name,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
     FROM
         dashboard_user_role
@@ -85,6 +91,7 @@ dashboard_user_role_all AS (
         dashboard_user_role.org,
         dashboard_user_role.user_id,
         dashboard_user_role.user_name,
+        dashboard_user_role.email,
         dashboard_user_role.user_created_on
 )
 SELECT
