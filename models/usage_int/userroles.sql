@@ -24,6 +24,7 @@ SELECT
         ' ',
         last_name
     ) AS user_name,
+    users.email,
     cte_user_roles.role_name,
     cte_user_roles.role_id,
     users.created_on AS user_created_on
