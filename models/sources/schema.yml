@@ -75,9 +75,9 @@ sources:
     - name: dashboard_roles
       identifier: dashboard_roles
       description: This table contains mapping roles attached to a dashboard
-  - name: arghyam
-    description: Arghyam Superset metadata
-    schema: arghyam
+  - name: akrsp
+    description: AKRSP (arghyam) Superset metadata
+    schema: akrsp
     tables:
     - name: logs
       identifier: logs
