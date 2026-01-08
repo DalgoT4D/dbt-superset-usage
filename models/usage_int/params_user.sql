@@ -103,3 +103,5 @@ FROM
     INNER JOIN {{ ref('params') }}
     params
     ON dashboard_user_role_all.org = params.org
+ORDER BY
+    params.month_start_date
