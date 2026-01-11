@@ -1,0 +1,63 @@
+version: 2
+
+models:
+
+  - name: user_metrics
+    description: "This model captures user metrics aggregated by role, organization, and dashboard."
+    columns:
+      - name: org
+        description: "The organization to which the metrics belong."
+      - name: role_name
+        description: "The name of the role."
+      - name: dashboard_title
+        description: "The title of the dashboard."
+      - name: month_start_date
+        description: "The start date of the month for the metrics."
+      - name: month_end_date
+        description: "The end date of the month for the metrics."
+      - name: total_users
+        description: "The total number of users."
+      - name: total_visits
+        description: "The total number of visits."
+      - name: active_users
+        description: "The number of active users."
+      - name: active_over_total_ratio
+        description: "The ratio of active users to total users."
+      - name: visits_per_active_user
+        description: "The average number of visits per active user."
+
+  - name: monthly_actions
+    description: "This model captures monthly actions aggregated by role, organization, and dashboard."
+    columns:
+      - name: action_id
+        description: "The unique identifier for the action."
+      - name: user_id
+        description: "The ID of the user who performed the action."
+      - name: user_name
+        description: "The name of the user who performed the action."
+      - name: user_created_on
+        description: "The date and time when the user was created."
+      - name: role_name
+        description: "The name of the role associated with the action."
+      - name: action
+        description: "The action performed."
+      - name: action_count
+        description: "The count of the action performed."
+      - name: action_date
+        description: "The date and time when the action was performed."
+      - name: dashboard_title
+        description: "The title of the dashboard associated with the action."
+      - name: dashboard_created_on
+        description: "The date and time when the dashboard was created."
+      - name: row_no
+        description: "The row number for the action."
+      - name: org
+        description: "The organization to which the action belongs."
+      - name: month_start_date
+        description: "The start date of the month for the actions."
+      - name: month_end_date
+        description: "The end date of the month for the actions."
+      - name: action_count
+        description: "The count of actions performed."
+      - name: is_active
+        description: "Indicates whether the user is active."
