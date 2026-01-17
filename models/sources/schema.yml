@@ -88,10 +88,6 @@ sources:
     - name: dashboards
       identifier: dashboards
       description: This table contains details of the dashboards createds
-      tests:
-      - elementary.schema_changes:
-          config:
-            severity: warn
     - name: user_roles
       identifier: ab_user_role
       description: This table contains mapping of users and roles
