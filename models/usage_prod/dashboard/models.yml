@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: top_dashboards
+    description: "This model captures the top dashboards based on user actions and visits."
+    columns:
+      - name: role_name
+        description: "The name of the role associated with the actions."
+        meta:
+          dimension:
+            type: string
+      - name: month_start_date
+        description: "The start date of the month for the actions."
+        meta:
+          dimension:
+            type: date
+      - name: month_end_date
+        description: "The end date of the month for the actions."
+        meta:
+          dimension:
+            type: date
+      - name: org
+        description: "The organization to which the actions belong."
+        meta:
+          dimension:
+            type: string
+      - name: dashboard_title
+        description: "The title of the dashboard associated with the actions."
+        meta:
+          dimension:
+            type: string
+      - name: dashboard_name
+        description: "The name of the dashboard associated with the actions."
+        meta:
+          dimension:
+            type: string
+      - name: total_visits
+        description: "The total number of visits to the dashboard."
+        meta:
+          dimension:
+            type: number

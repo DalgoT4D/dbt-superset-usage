@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: actions
+    description: "This model captures the actions performed by users on dashboards."
+    columns:
+      - name: action_id
+        description: "The unique identifier for the action."
+      - name: user_id
+        description: "The ID of the user who performed the action."
+      - name: user_name
+        description: "The name of the user who performed the action."
+      - name: user_created_on
+        description: "The date and time when the user was created."
+      - name: role_name
+        description: "The name of the role associated with the action."
+      - name: org
+        description: "The organization to which the action belongs."
+      - name: action
+        description: "The action performed."
+      - name: action_count
+        description: "The count of the action performed."
+      - name: action_date
+        description: "The date and time when the action was performed."
+      - name: dashboard_title
+        description: "The title of the dashboard associated with the action."
+      - name: dashboard_created_on
+        description: "The date and time when the dashboard was created."
+
+  - name: params_user
+    description: "This model captures the parameters for users, roles, and dashboards."
+    columns:
+      - name: month_start_date
+        description: "The start date of the month for the parameters."
+      - name: month_end_date
+        description: "The end date of the month for the parameters."
+      - name: org
+        description: "The organization to which the parameters belong."
+      - name: dashboard_id
+        description: "The ID of the dashboard."
+      - name: dashboard_title
+        description: "The title of the dashboard."
+      - name: role_id
+        description: "The ID of the role."
+      - name: role_name
+        description: "The name of the role."
+      - name: user_id
+        description: "The ID of the user."
+      - name: user_name
+        description: "The name of the user."
+      - name: user_created_on
+        description: "The date and time when the user was created."
+
+  - name: params
+    description: "This model captures the date parameters for organizations."
+    columns:
+      - name: org
+        description: "The organization to which the parameters belong."
+      - name: month_start_date
+        description: "The start date of the month for the parameters."
+      - name: month_end_date
+        description: "The end date of the month for the parameters."
+
+  - name: userroles
+    description: "This model captures the roles assigned to users."
+    columns:
+      - name: user_id
+        description: "The ID of the user."
+      - name: org
+        description: "The organization to which the user belongs."
+      - name: user_name
+        description: "The name of the user."
+      - name: role_name
+        description: "The name of the role assigned to the user."
+      - name: role_id
+        description: "The ID of the role assigned to the user."
+      - name: user_created_on
+        description: "The date and time when the user was created."
