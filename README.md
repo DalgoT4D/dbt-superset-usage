@@ -1,6 +1,6 @@
 # Dbt run
 ```sh
-export DBT_USAGE_VER=v1 && dbt run
+dbt run
 ```
 
 # Onboard a new org
@@ -27,7 +27,7 @@ export DBT_USAGE_VER=v1 && dbt run
 
 8. Run a full refresh on logs. This is needed for the first time 
 ```sh
-export DBT_USAGE_VER=v1 && dbt run --vars '{"full_refresh_logs_for_org": "<new_org_slug>"}'
+dbt run --vars '{"full_refresh_logs_for_org": "<new_org_slug>"}'
 ```
 
 9. Push all the code to git and submit the PR. 
